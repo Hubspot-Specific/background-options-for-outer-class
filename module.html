@@ -1,0 +1,23 @@
+<div class="banner-blglist-outer">
+    <div class="banner-blglist-inner">
+      <div class="banner-column-one">
+        {{ module.column_one_banner_text }}
+      </div>
+      <div class="banner-column-two">
+        {{ module.column_two_banner_text }}
+      </div>
+    </div>
+  
+</div>
+<style>
+  .banner-blglist-outer{
+    {% if module.style.background_style == "bg_img" %}
+    {{ module.style.background_image.css }}
+    background-repeat: no-repeat;
+    {% elif module.style.background_style == "bg_col" %}
+    background-color:{{ module.style.color_field.color }};
+    {% else module.style.background_style == "bg_gra" %}
+    background-image:{{ module.style.gradient_field.css }};
+    {% endif %}
+  }
+</style>
